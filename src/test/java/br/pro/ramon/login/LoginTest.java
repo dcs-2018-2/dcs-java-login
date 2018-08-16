@@ -8,42 +8,62 @@ public class LoginTest {
 
     @Test
     public void testLoginAutorizado() {
+        // ENTRADA
         String login = "admin";
         String senha = "r**t";
-        LoginService loginService = new LoginService();
-        boolean resultado = loginService.login(login, senha);
+        
+        // PROCESSAMENTO
+        LoginProgram program = new LoginProgram();
+        
+        // SAÍDA
+        String saida = program.login(login, senha);
 
-        assertThat(resultado, is(true));
+        assertThat(saida, is("Autorizado"));
     }
 
     @Test
     public void testLoginErrado() {
+        // ENTRADA
         String login = "usuario";
         String senha = "r**t";
-        LoginService loginService = new LoginService();
-        boolean resultado = loginService.login(login, senha);
+        
+        // PROCESSAMENTO
+        LoginProgram program = new LoginProgram();
+        
+        // SAÍDA
+        String saida = program.login(login, senha);
 
-        assertThat(resultado, is(false));
+        assertThat(saida, is("Não Autorizado"));
     }
 
     @Test
     public void testSenhaErrada() {
+        // ENTRADA
         String login = "admin";
         String senha = "123456";
-        LoginService loginService = new LoginService();
-        boolean resultado = loginService.login(login, senha);
+        
+        // PROCESSAMENTO
+        LoginProgram program = new LoginProgram();
+        
+        // SAÍDA
+        String saida = program.login(login, senha);
 
-        assertThat(resultado, is(false));
+        assertThat(saida, is("Não Autorizado"));
     }
 
     @Test
     public void testLoginESenhaErrados() {
+        // ENTRADA
         String login = "usuario";
         String senha = "123456";
-        LoginService loginService = new LoginService();
-        boolean resultado = loginService.login(login, senha);
+        
+        // PROCESSAMENTO
+        LoginProgram program = new LoginProgram();
+        
+        // SAÍDA
+        String saida = program.login(login, senha);
 
-        assertThat(resultado, is(false));
+        assertThat(saida, is("Não Autorizado"));
     }
 
 }

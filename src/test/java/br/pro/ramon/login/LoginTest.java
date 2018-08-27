@@ -66,4 +66,19 @@ public class LoginTest {
         assertThat(saida, is("Não Autorizado"));
     }
 
+    @Test
+    public void testLoginAutorizadoDeveUsarEquals() {
+        // ENTRADA
+        String login = new String("admin");
+        String senha = new String("r**t");
+        
+        // PROCESSAMENTO
+        LoginProgram program = new LoginProgram();
+        
+        // SAÍDA
+        String saida = program.login(login, senha);
+
+        assertThat(saida, is("Autorizado"));
+    }
+
 }
